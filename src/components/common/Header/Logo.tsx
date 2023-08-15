@@ -12,13 +12,14 @@ export default function Logo() {
             text-blue-500
             "
 			>
-				<Image
+				{/* <Image
 					src="/images/logo.jpeg"
 					alt="Servify Logo"
 					width={200}
 					height={50}
 					className="cursor-pointer w-24 h-auto"
-				/>
+				/> */}
+				<h1>Servify</h1>
 			</Link>
 		</section>
 	);
