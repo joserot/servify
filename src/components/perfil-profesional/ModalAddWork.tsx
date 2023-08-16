@@ -6,7 +6,9 @@ interface Props {
 export default function ModalAddWork({ closeModal, idWork }: Props) {
 	return (
 		<div className="flex flex-col justify-center items-center">
-			<span className="text-3xl font-semibold mb-8">Agregar trabajo</span>
+			<span className="text-3xl font-semibold mb-8 text-center">
+				Agregar trabajo
+			</span>
 			<form className="w-full flex flex-col gap-4">
 				<label className="flex flex-col w-full">
 					Nombre del trabajo
@@ -20,7 +22,15 @@ export default function ModalAddWork({ closeModal, idWork }: Props) {
 					Descripción del trabajo
 					<textarea
 						name="name"
-						className="border border-gray-300 rounded outline-none py-1 px-2"
+						className="
+            border 
+        border-gray-300 
+            rounded 
+            outline-none 
+            py-1 
+            px-2 
+            resize-none
+            h-32"
 					/>
 				</label>
 				<label className="flex flex-col w-full">
@@ -39,9 +49,11 @@ export default function ModalAddWork({ closeModal, idWork }: Props) {
                 transition-colors
                 text-white 
                 rounded 
-                py-1 
-                px-2
-                w-full"
+                p-2
+                w-full
+                font-semibold
+                mt-4
+                "
 					onClick={closeModal}
 				>
 					Guardar
