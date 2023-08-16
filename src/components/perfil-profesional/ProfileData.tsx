@@ -1,19 +1,24 @@
 import Image from "next/image";
 import CustomSelect from "../ui/Select";
 import servicesList from "<src>/data/servicesList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import Link from "next/link";
 
 export default function ProfileData() {
+	const [whatsAppNumber, setWhatsAppNumber] = useState("3756435952");
+
 	return (
 		<div
 			className="
         bg-white
           rounded
-          w-1/3
-          max-w-sm
+          w-full
+          lg:w-1/3
+          lg:max-w-sm
           px-5
           py-10
-          mt-10
-          md:mt-20
           flex
           flex-col
           justify-center
@@ -104,12 +109,41 @@ export default function ProfileData() {
 				</label>
 				<label className="flex flex-col w-full">
 					WhatsApp
-					<input
-						defaultValue="3756435952"
-						name="whatsapp"
-						type="number"
-						className="border border-gray-300 rounded outline-none py-1 px-2"
-					/>
+					<div className="flex w-full justify-center items-center gap-2">
+						<input
+							value={whatsAppNumber}
+							onChange={(e) => {
+								e.preventDefault();
+								setWhatsAppNumber(e.target.value);
+							}}
+							name="whatsapp"
+							type="number"
+							className="border border-gray-300 rounded outline-none py-1 px-2 w-full"
+						/>
+						<Link
+							href={`https://wa.me/${whatsAppNumber}?text=Hola,%20me%20gustaría%20contactarte%20para%20un%20trabajo`}
+							target="_blank"
+							className="
+                bg-blue-500 
+                hover:bg-blue-600
+                transition-colors
+                text-white 
+                rounded 
+                py-1 
+                px-2
+                flex
+                justify-center
+                items-center
+                gap-2
+                "
+						>
+							test{" "}
+							<FontAwesomeIcon
+								className="text-xs"
+								icon={faArrowUpRightFromSquare}
+							/>
+						</Link>
+					</div>
 				</label>
 				<button
 					type="submit"

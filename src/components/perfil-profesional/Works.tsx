@@ -1,36 +1,47 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import ModalAddWork from "./ModalAddWork";
+import Modal from "../common/Modal";
+import useModal from "../common/useModal";
 
 export default function Works() {
+	const [isOpenWork, openModalWork, closeModalWork] = useModal(false);
+
 	return (
-		<div
-			className="
+		<>
+			{/* MODAL */}
+			<Modal type="default" isOpen={isOpenWork} closeModal={closeModalWork}>
+				<ModalAddWork closeModal={closeModalWork} />
+			</Modal>
+
+			{/* START WORKS */}
+			<div
+				className="
         bg-white
           rounded
-          w-2/3
+          w-full
+          lg:w-2/3
           p-10
-          mt-10
-          md:mt-20
           flex
           flex-col
           justify-center
           items-start
           "
-		>
-			<h2
-				className="
+			>
+				<h2
+					className="
             font-semibold
             text-2xl
             mb-8"
-			>
-				Trabajos Realizados
-			</h2>
-			<div className="mb-8">
-				<p className="text-gray-500">No agregaste ningún trabajo</p>
-			</div>
-			<button
-				type="submit"
-				className="
+				>
+					Trabajos Realizados
+				</h2>
+				<div className="mb-8">
+					<p className="text-gray-500">No agregaste ningún trabajo</p>
+				</div>
+				<button
+					type="submit"
+					className="
                 bg-blue-500 
                 hover:bg-blue-600
                 transition-colors
@@ -44,9 +55,11 @@ export default function Works() {
                 gap-2
                 self-end
                 "
-			>
-				Agregar Trabajo <FontAwesomeIcon icon={faPlus} />
-			</button>
-		</div>
+					onClick={openModalWork}
+				>
+					Agregar trabajo <FontAwesomeIcon icon={faPlus} />
+				</button>
+			</div>
+		</>
 	);
 }
